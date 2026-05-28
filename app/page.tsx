@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#100c09] text-white">
       <section className="mx-auto max-w-7xl px-6 py-8">
-        <nav className="flex items-center justify-between">
+        <nav className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex items-center gap-5">
           <Image
             src="/images/logo-lcm-sf.png"
@@ -37,7 +37,7 @@ export default function Home() {
 
           <a
             href="#contact"
-            className="rounded-full bg-amber-500 px-5 py-2 font-semibold text-black"
+            className="self-start rounded-full bg-amber-500 px-5 py-2 font-semibold text-black lg:self-auto"
           >
             Demander un devis
           </a>
