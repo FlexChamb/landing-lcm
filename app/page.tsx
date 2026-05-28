@@ -2,18 +2,18 @@ import Image from "next/image";
 
 const machines = [
   {
-    name: "Comptoir mobile 1 bec",
+    name: "Le Comptoir Mobile",
     image: "/images/mobile-1poste.png",
     description:
-      "Solution mobile autonome pour servir de la bière pression avec terminal de paiement intégré.",
-    points: ["1 bec de distribution", "Paiement intégré", "Mobile et autonome"],
+    "Comptoir de bière pression autonome alliant design, simplicité d’exploitation et expérience de service moderne.",
+    points: ["Service 100% autonome", "Paiement intégré", "Mobile et rapide à déployer"],
   },
   {
-    name: "Comptoir intégré 4 becs",
+    name: "Le Comptoir Evenementiel",
     image: "/images/mobile-4postes.png",
     description:
       "Solution intégrée sur remorque pour déployer plusieurs points de service automatisés.",
-    points: ["4 becs de distribution", "4 terminaux de paiement", "Idéal événements"],
+    points: [  "4 points de service autonomes", "Paiement intégré", "Mobile et rapide à déployer", "Idéal pour les événements à fort débit",],
   },
 ];
 
@@ -49,14 +49,18 @@ export default function Home() {
               Distribution automatisée de boissons
             </p>
 
-            <h1 className="text-5xl font-bold leading-tight md:text-7xl">
+            <h1 className="text-3xl font-bold leading-tight md:text-5xl">
               Des solutions innovantes au service de vos idées
             </h1>
 
             <p className="mt-6 max-w-xl text-lg text-zinc-300">
-              Nous concevons des machines de distribution de bière pression automatisées,
-              mobiles ou intégrées, disponibles à la vente, à la location ou en prêt avec
-              partage de recette.
+                Nous concevons des machines de distribution de bière pression automatisées,
+                mobiles ou intégrées, disponibles à la vente, à la location ou en exploitation partagée.
+                
+                <br />
+
+                Chaque projet est pensé sur mesure afin de proposer des solutions fiables,
+                modernes et adaptées aux besoins de nos clients.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -64,7 +68,7 @@ export default function Home() {
                 href="#machines"
                 className="rounded-full bg-white px-6 py-3 font-semibold text-black"
               >
-                Découvrir les machines
+                Découvrir Nos Comptoirs
               </a>
 
               <a
@@ -92,10 +96,10 @@ export default function Home() {
 
       <section id="machines" className="bg-[#18110d] px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <h2 className="text-4xl font-bold">Nos machines</h2>
+          <h2 className="text-4xl font-bold">Nos comptoirs</h2>
 
           <p className="mt-4 max-w-2xl text-zinc-300">
-            Des comptoirs automatisés pensés pour les événements, lieux de restauration,
+            Des solutions de distribution de boissons automatisées pensées pour les événements, lieux de restauration,
             espaces professionnels et installations temporaires.
           </p>
 
@@ -131,17 +135,36 @@ export default function Home() {
 
       <section className="px-6 py-20">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
-          {["Vente", "Location", "Prêt avec partage de recette"].map((item) => (
-            <div
-              key={item}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8"
-            >
-              <h3 className="text-2xl font-bold text-amber-400">{item}</h3>
-              <p className="mt-3 text-zinc-300">
-                Une formule adaptable selon votre projet, votre lieu et votre volume de service.
-              </p>
-            </div>
-          ))}
+          {[
+          {
+            title: "Vente",
+            description:
+              "Déployez une solution autonome durable et entièrement intégrée à votre activité.",
+          },
+          {
+            title: "Location",
+            description:
+              "Une solution flexible idéale pour les événements, opérations temporaires et besoins ponctuels.",
+          },
+          {
+            title: "Exploitation partagée",
+            description:
+              "Profitez d’une solution clé en main sans investissement initial ni personnel dédié.",
+          },
+        ].map((item) => (
+          <div
+            key={item.title}
+            className="rounded-3xl border border-white/10 bg-white/5 p-8"
+          >
+            <h3 className="text-2xl font-bold text-amber-400">
+              {item.title}
+            </h3>
+
+            <p className="mt-3 text-zinc-300">
+              {item.description}
+            </p>
+          </div>
+        ))}
         </div>
       </section>
 
