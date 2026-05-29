@@ -1,11 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const machines = [
   {
     name: "Le Comptoir Mobile",
     image: "/images/mobile-1poste.png",
     description:
-    "Comptoir de bière pression autonome alliant design, simplicité d’exploitation et expérience de service moderne.",
+      "Comptoir de bière pression autonome alliant design, simplicité d’exploitation et expérience de service moderne.",
     points: ["Service 100% autonome", "Paiement intégré", "Mobile et rapide à déployer"],
   },
   {
@@ -13,27 +16,34 @@ const machines = [
     image: "/images/mobile-4postes.png",
     description:
       "Solution intégrée sur remorque pour déployer plusieurs points de service automatisés.",
-    points: [  "4 points de service autonomes", "Paiement intégré", "Mobile et rapide à déployer", "Idéal pour les événements à fort débit",],
+    points: [
+      "4 points de service autonomes",
+      "Paiement intégré",
+      "Mobile et rapide à déployer",
+      "Idéal pour les événements à fort débit",
+    ],
   },
 ];
 
 export default function Home() {
+  const [showPhone, setShowPhone] = useState(false);
+
   return (
     <main className="min-h-screen bg-[#100c09] text-white">
       <section className="mx-auto max-w-7xl px-6 py-8">
         <nav className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex items-center gap-5">
-          <Image
-            src="/images/logo-lcm-sf.png"
-            alt="Les Comptoirs Modernes"
-            width={180}
-            height={180}
-          />
+          <div className="flex items-center gap-5">
+            <Image
+              src="/images/logo-lcm-sf.png"
+              alt="Les Comptoirs Modernes"
+              width={180}
+              height={180}
+            />
 
-          <span className="text-3xl font-bold tracking-wide">
-            Les Comptoirs Modernes
-          </span>
-        </div>
+            <span className="text-3xl font-bold tracking-wide">
+              Les Comptoirs Modernes
+            </span>
+          </div>
 
           <a
             href="#contact"
@@ -54,13 +64,12 @@ export default function Home() {
             </h1>
 
             <p className="mt-6 max-w-xl text-lg text-zinc-300">
-                Nous concevons des machines de distribution de bière pression automatisées,
-                mobiles ou intégrées, disponibles à la vente, à la location ou en exploitation partagée.
-                
-                <br />
-
-                Chaque projet est pensé sur mesure afin de proposer des solutions fiables,
-                modernes et adaptées aux besoins de nos clients.
+              Nous concevons des machines de distribution de bière pression automatisées,
+              mobiles ou intégrées, disponibles à la vente, à la location ou en exploitation partagée.
+              <br />
+              <br />
+              Chaque projet est pensé sur mesure afin de proposer des solutions fiables,
+              modernes et adaptées aux besoins de nos clients.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -105,10 +114,7 @@ export default function Home() {
 
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             {machines.map((machine) => (
-              <article
-                key={machine.name}
-                className="overflow-hidden rounded-3xl bg-[#241914]"
-              >
+              <article key={machine.name} className="overflow-hidden rounded-3xl bg-[#241914]">
                 <Image
                   src={machine.image}
                   alt={machine.name}
@@ -136,35 +142,27 @@ export default function Home() {
       <section className="px-6 py-20">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
           {[
-          {
-            title: "Vente",
-            description:
-              "Déployez une solution autonome durable et entièrement intégrée à votre activité.",
-          },
-          {
-            title: "Location",
-            description:
-              "Une solution flexible idéale pour les événements, opérations temporaires et besoins ponctuels.",
-          },
-          {
-            title: "Exploitation partagée",
-            description:
-              "Profitez d’une solution clé en main sans investissement initial ni personnel dédié.",
-          },
-        ].map((item) => (
-          <div
-            key={item.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-8"
-          >
-            <h3 className="text-2xl font-bold text-amber-400">
-              {item.title}
-            </h3>
-
-            <p className="mt-3 text-zinc-300">
-              {item.description}
-            </p>
-          </div>
-        ))}
+            {
+              title: "Vente",
+              description:
+                "Déployez une solution autonome durable et entièrement intégrée à votre activité.",
+            },
+            {
+              title: "Location",
+              description:
+                "Une solution flexible idéale pour les événements, opérations temporaires et besoins ponctuels.",
+            },
+            {
+              title: "Exploitation partagée",
+              description:
+                "Profitez d’une solution clé en main sans investissement initial ni personnel dédié.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="rounded-3xl border border-white/10 bg-white/5 p-8">
+              <h3 className="text-2xl font-bold text-amber-400">{item.title}</h3>
+              <p className="mt-3 text-zinc-300">{item.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -184,12 +182,13 @@ export default function Home() {
               Par mail
             </a>
 
-            <a
+            <button
+              type="button"
               className="rounded-2xl bg-amber-500 px-6 py-4 font-semibold text-black"
-              href="tel:+33617746776"
+              onClick={() => setShowPhone(!showPhone)}
             >
-              Par téléphone
-            </a>
+              {showPhone ? "📞 06 17 74 67 76" : "Par téléphone"}
+            </button>
           </div>
         </div>
       </section>
