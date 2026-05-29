@@ -179,7 +179,7 @@ export default function Home() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             <a
               className="rounded-2xl bg-black px-6 py-4 font-semibold text-white"
-              href="mailto:contact@les-comptoirs-modernes.com"
+              href="mailto:contact@2mi-ingenierie.com"
             >
               Par mail
             </a>
