@@ -179,15 +179,22 @@ export default function Home() {
               className="rounded-2xl bg-black px-6 py-4 font-semibold text-white"
               href="mailto:contact@2mi-ingenierie.com"
             >
-              Par mail
+              Mail
+            </a>
+
+            <a
+              href="tel:+33617746776"
+              className="rounded-2xl bg-amber-500 px-6 py-4 font-semibold text-black sm:hidden"
+            >
+              Téléphone
             </a>
 
             <button
               type="button"
-              className="rounded-2xl bg-amber-500 px-6 py-4 font-semibold text-black"
+              className="hidden rounded-2xl bg-amber-500 px-6 py-4 font-semibold text-black sm:block"
               onClick={() => setShowPhone(!showPhone)}
             >
-              {showPhone ? "📞 06 17 74 67 76" : "Par téléphone"}
+              {showPhone ? "📞 06 17 74 67 76" : "Téléphone"}
             </button>
           </div>
         </div>
